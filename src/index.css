@@ -7,7 +7,12 @@
 /* Nav */
 
 .nav-wrapper{
-    background-color:#000077;
+    background-color:rgb(255, 255, 255);
+    position: fixed;
+}
+
+.nav-wrapper a{
+    color: rgb(255, 166, 0)
 }
 
 .sidenav{
@@ -15,7 +20,7 @@
 }
 
 .active-nav-link{
-    background-color: rgb(9, 9, 231);
+    background-color: rgb(255, 245, 235);
     border-left-width: 1px;
     border-right-width: 1px;
     border-left-color: orange;
@@ -31,5 +36,48 @@
     border-right-style: solid;
     border-left-style: solid;
 }
+
+/* Buttons */
+.tell-me-more-btn,
+.view-work-btn{
+    background-color: transparent;
+    border-color: orange;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.view-work-btn{
+    color: orange;
+}
+
+.tell-me-more-btn:visited,
+.tell-me-more-btn:focus,
+.view-work-btn:visited,
+.view-work-btn:focus{
+    background-color: transparent;
+}
+
+.tell-me-more-btn:hover,
+.view-work-btn:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Home */
+
+#header{
+    background-image: linear-gradient(rgba(2, 0, 21),rgba(2, 0, 21,.1)), url(img/desk.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+#header h3{
+    padding-top: 150px;
+    margin:0;
+}
+
+/* TypesOfWork */
+
 
 
