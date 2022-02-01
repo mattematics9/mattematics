@@ -2,10 +2,13 @@ import React, {useEffect} from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js'
 import { Link, useLocation } from 'react-router-dom'
 import MobileNav from './MobileNav'
-import { connect } from 'react-redux'
-import { switchPage } from '../../redux/actions';
 
-const Navbar = ({page, dispatch}) => { 
+const Navbar = () => { 
+
+    const location = useLocation();
+    const pathname = location.pathname;
+    let page = pathname.substring(1);
+    page = page === ''? 'home': page;
 
     useEffect(() => {
         var sidenav = document.querySelectorAll('.sidenav');
@@ -13,15 +16,11 @@ const Navbar = ({page, dispatch}) => {
     }, [])
 
     useEffect(() => {
-        page = page === ''? 'home': page;
-        document.getElementById(`${page}-link`).className = 'active-nav-link'; 
-    }, [page])
-
-
-    const handleClick = (e) => {
-        let nextPage = e.target.innerText.toLowerCase();
-        dispatch(switchPage(nextPage));
-    }
+        document.querySelectorAll('.nav-link').forEach(navLink => {
+            navLink.className = 'nav-link';
+        })
+        document.getElementById(`${page}-link`).className = 'nav-link active-nav-link'; 
+    },[page])
 
     return (
         <>
@@ -31,10 +30,10 @@ const Navbar = ({page, dispatch}) => {
                     <i className="material-icons">menu</i>
                 </Link>
                 <ul className='right hide-on-med-and-down'>
-                    <li onClick={handleClick} id='home-link'><Link to='/'>HOME</Link></li>
-                    <li onClick={handleClick} id='about-link'><Link to='/about'>ABOUT</Link></li>
-                    <li onClick={handleClick} id='work-link'><Link to='/work'>WORK</Link></li>
-                    <li onClick={handleClick} id='contact-link'><Link to='/contact'>CONTACT</Link></li>
+                    <li className='nav-link' id='home-link'><Link to='/'>HOME</Link></li>
+                    <li className='nav-link' id='about-link'><Link to='/about'>ABOUT</Link></li>
+                    <li className='nav-link' id='work-link'><Link to='/work'>WORK</Link></li>
+                    <li className='nav-link' id='contact-link'><Link to='/contact'>CONTACT</Link></li>
                 </ul>
             </nav>
             <MobileNav/>
@@ -42,16 +41,5 @@ const Navbar = ({page, dispatch}) => {
     );
 };
 
-
-const mapStateToProps = (state) => {
-    return{
-        page: state.page
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return{dispatch}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default Navbar;
 

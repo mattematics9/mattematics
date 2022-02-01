@@ -3,20 +3,13 @@ import WebsiteDesign from '../../img/website-design.jpg'
 import App from '../../img/app.jpg'
 import Bitcoin from '../../img/bitcoin.jpg'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { switchPage } from '../../redux/actions';
 
-
-const TypesOfWork = ({dispatch}) => {
+const TypesOfWork = () => {
 
     useEffect(() => {
         const scrollspy = document.querySelectorAll('.scrollspy');
         M.ScrollSpy.init(scrollspy);
     },[])
-
-    const handleClick = () => {
-        dispatch(switchPage('work'))
-    }
 
   return(
         <div className="container section scrollspy" id="typesOfWork">
@@ -26,16 +19,16 @@ const TypesOfWork = ({dispatch}) => {
                 </div>
                 <div className="col s12 l6 offset-l1">
                     <h2 className="indigo-text text-darken-4">Website Design</h2>
-                    <p>A good design will guide the eye of a website's users and keep them engaged and wanting to stay.  We love to help companies develop and showcase their brand and best attributes so customers keep coming back.</p>
+                    <p>A good design highlights a companies best attributes and guides the eye of their users, making it effortless to navigate the website.</p>
                 </div>
             </div>
             <div className="row">
                 <div className="col s12 l4 push-l7">
                     <img src={App} alt="App Pic" className="responsive-img"/>
                 </div>
-                <div className="col s12 l6 pull-l4 right-align">
+                <div className="col s12 l6 pull-l4 right-align" id='typesOfWork-middle-text'>
                     <h2 className="indigo-text text-darken-4">Web Apps</h2>
-                    <p>Create a website with greater functionality: user logins, social media, forums, e-commerce, data visualzation, and much much more.  There is no limit to what can be created!</p>
+                    <p>Add functionality: user logins, social media, forums, e-commerce, data visualzation, and much much more.</p>
                 </div>
             </div>
             <div className="row">
@@ -44,17 +37,13 @@ const TypesOfWork = ({dispatch}) => {
                 </div>
                 <div className="col s12 l6 offset-l1">
                     <h2 className="indigo-text text-darken-4">Crypto/Web3</h2>
-                    <p>Cryptocurrencies and applications that utilize blockchain technology to bring value and functionality in a dentralized way.  We would love to explore with you this new evergrowing technology and help build the next wave of the internet.</p>
+                    <p>Cryptocurrencies and decentralized applications utilizing blockchain technology.  We would love to explore with you this rapidly growing field and help build the next wave of the web.</p>
                 </div>
             </div>
-            <div className='center' style={{marginTop: '40px'}}><Link onClick={handleClick} className="btn-large view-work-btn" to='/work'>VIEW WORK</Link></div>
+            <div className='center' style={{marginTop: '40px'}}><Link className="btn-large view-work-btn" to='/work'>VIEW WORK</Link></div>
         </div>
 
   )
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return{dispatch}
-}
-
-export default connect(null, mapDispatchToProps)(TypesOfWork);
+export default TypesOfWork

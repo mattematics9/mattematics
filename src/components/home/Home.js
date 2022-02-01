@@ -1,7 +1,9 @@
 import React from 'react';
 import Header from './Header'
+import Testimonials from './Testimonials';
 import TypesOfWork from './TypesOfWork';
 import WordsToDescribe from './WordsToDescribe';
+import Form from '../contact/Form'
 
 const Home = () => {
     
@@ -10,6 +12,8 @@ const Home = () => {
           <Header/>
           <TypesOfWork/>
           <WordsToDescribe/>
+          <Testimonials/>
+          <Form/>
       </>
   );
 };
