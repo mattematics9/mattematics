@@ -1,5 +1,6 @@
-import { initializeApp} from "firebase/app";
-import { getFirestore } from 'firebase/firestore';
+import { initializeApp, getApp } from "firebase/app";
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
+import { connectFunctionsEmulator, getFunctions } from "firebase/functions";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCtJ-aHagEJ-cdNi-uOj2H8si5GAHvdgy8",
@@ -14,6 +15,11 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig); 
 export const db = getFirestore();
+export const functions = getFunctions(getApp());
+// connectFunctionsEmulator(functions, "localhost", 5001);  //didnt have to use this.  emulator automatically read the functions from functions/index.js
+// connectFirestoreEmulator(db, 'localhost', 8080);
+
+
 
 
 
